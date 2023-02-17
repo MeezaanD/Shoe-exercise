@@ -1,3 +1,5 @@
+const Shoe = require("../models/shoe.model.js");
+
 exports.create = (req, res) => {
     // Validate request
     if (!req.body) {

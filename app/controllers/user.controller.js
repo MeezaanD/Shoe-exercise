@@ -1,3 +1,5 @@
+const User = require("../models/user.model.js");
+
 exports.create = (req, res) => {
     // Validate request
     if (!req.body) {

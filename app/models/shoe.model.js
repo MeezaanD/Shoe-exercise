@@ -1,4 +1,5 @@
-const sql = require("./shoe.model");
+const sql = require("../config/db.config");
+
 
 // constructor
 const Shoe = function(shoe) {

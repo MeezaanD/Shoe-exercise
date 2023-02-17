@@ -1,4 +1,4 @@
-const sql = require("./user.model");
+const sql = require("../config/db.config");
 
 // constructor
 const User = function(user) {
