@@ -1,11 +1,12 @@
 const sql = require("../config/db.config");
+const {hash, compare, hashSync} = require('bcrypt');
 
 // constructor
 const User = function(user) {
   this.id = user.id;
   this.full_name = user.full_name;
   this.email = user.email;
-  this.password = user.password;
+  this.userPassword = user.userPassword;
 };
 
 User.create = (newUser, result) => {
@@ -74,8 +75,8 @@ User.getAllPublished = result => {
 
 User.updateById = (id, user, result) => {
   sql.query(
-    "UPDATE users SET id = ?, full_name = ?, email = ? WHERE id = ?",
-    [user.id, user.full_name, user.email,user.password, id],
+    "UPDATE users SET user.id = ?, user.full_name = ?, user.email = ?, user.userPassword WHERE id = ?",
+    [user.id, user.full_name, user.email,user.userPassword, id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);

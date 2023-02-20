@@ -13,7 +13,7 @@ exports.create = (req, res) => {
       id: req.body.id,
       full_name: req.body.full_name,
       email: req.body.email,
-      password: req.body.password
+      userPassword: req.body.userPassword
     });
   
     // Save User in the database

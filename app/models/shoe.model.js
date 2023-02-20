@@ -1,4 +1,5 @@
 const sql = require("../config/db.config");
+const {hash, compare, hashSync} = require('bcrypt');
 
 
 // constructor
