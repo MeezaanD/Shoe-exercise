@@ -6,7 +6,10 @@ let sql = mysql.createConnection({
     user: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
+    multipleStatements: true
  });
 
- module.exports = sql;
+console.log("Connected Successfully");
+module.exports = sql;
+
 

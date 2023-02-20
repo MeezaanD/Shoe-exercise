@@ -12,8 +12,9 @@ exports.create = (req, res) => {
     const shoe = new Shoe({
       shoe_id: req.body.shoe_id,
       shoe_brand: req.body.shoe_brand,
-      shoe_price: req.body.shoe_price,
-      shoe_colour: req.body.shoe_colour
+      shoe_size: req.body.shoe_size,
+      shoe_colour: req.body.shoe_colour,
+      id: req.body.id
     });
   
     // Save Shoe in the database

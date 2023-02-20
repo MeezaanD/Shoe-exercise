@@ -5,8 +5,9 @@ const sql = require("../config/db.config");
 const Shoe = function(shoe) {
   this.shoe_id = shoe.shoe_id;
   this.shoe_brand = shoe.shoe_brand;
-  this.shoe_price = shoe.shoe_price;
+  this.shoe_size = shoe.shoe_size;
   this.shoe_colour = shoe.shoe_colour;
+  this.id = shoe.id
 };
 
 Shoe.create = (newShoe, result) => {
@@ -61,7 +62,7 @@ Shoe.getAll = (shoe_id, result) => {
 };
 
 Shoe.getAllPublished = result => {
-  sql.query("SELECT * FROM shoes WHERE shoe_price=true", (err, res) => {
+  sql.query("SELECT * FROM shoes WHERE shoe_id=true", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -75,8 +76,8 @@ Shoe.getAllPublished = result => {
 
 Shoe.updateById = (shoe_id, shoe, result) => {
   sql.query(
-    "UPDATE shoes SET shoe_id = ?, shoe_brand = ?, shoe_price = ? WHERE shoe_id = ?",
-    [shoe.shoe_id, shoe.shoe_brand, shoe.shoe_price,shoe.shoe_colour, shoe_id],
+    "UPDATE shoes SET shoe_id = ?, shoe_brand = ?, shoe_size = ? WHERE shoe_id = ?",
+    [shoe.shoe_id, shoe.shoe_brand, shoe.shoe_price,shoe.shoe_colour, shoe.id],
     (err, res) => {
       if (err) {
         console.log("error: ", err);
